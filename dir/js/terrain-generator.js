@@ -38,7 +38,6 @@ class TerrainGenerator{
 					this.map[iX][iY] = 0;
 				}	
 			}
-			
 		}
 		
 	}
@@ -58,20 +57,16 @@ class TerrainGenerator{
 	}
 	
 	SmoothMap(){
-		let dupmap = this.map;
-		
 		for(let iX = 0; iX < this.mapWidth; iX++){
 			for(let iY = 0; iY < this.mapHeight; iY++){
-				let count0 = this.GetNeighborCount(iX, iY, 0);
+				//let count0 = this.GetNeighborCount(iX, iY, 0);
 				let count1 = this.GetNeighborCount(iX, iY, 1);
 				
 				if(count1 > this.convertAt){
-					//this.SetCoordinate(iX, iY, 1)	
-					dupmap[iX][iY] = 1;
+					this.SetCoordinate(iX, iY, 1);
 				}
-				else{
-					//this.SetCoordinate(iX, iY, 0)
-					dupmap[iX][iY] = 0;
+				else if(count1 < this.convertAt){
+					this.SetCoordinate(iX, iY, 0);
 				}
 			}
 		}
@@ -90,11 +85,12 @@ class TerrainGenerator{
 				}
 				
 				if(this.GetCoordinate(xNeighbor, yNeighbor) == null){
+					if(value == 0)
+						count++;
 					yNeighbor++;
 					continue;
 				}
 				
-				//console.log(this.GetCoordinate(xNeighbor, yNeighbor));
 				if(this.GetCoordinate(xNeighbor, yNeighbor) == value){
 					
 					count++;
@@ -102,7 +98,6 @@ class TerrainGenerator{
 				
 				yNeighbor++;
 			}
-			//console.log("");
 			xNeighbor++;
 			yNeighbor = y - 1;
 		}

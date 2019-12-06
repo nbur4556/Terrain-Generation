@@ -1,7 +1,22 @@
 window.onload = function(){
-	var tGen = new TerrainGenerator(125, 250, 37, 3, 1); //mapWidth, mapHeight, fillPercent, convertAt, smoothAmount, seed
+	var mapWidth = 100;
+	var mapHeight = 100;
+	var fillpercent = 54;
+	var convertAt = 4;
+	var smoothAmount = 5;
+	var seed = null;
+	var tGen = new TerrainGenerator(mapWidth, mapHeight, fillpercent, convertAt, smoothAmount, seed);
 	
 	DrawMapToScreen(tGen.GetMap());
+	
+	document.getElementById("build").addEventListener("click", function(){
+		tGen.CreateMap();
+		for(let i = 0; i < smoothAmount; i++){
+			tGen.SmoothMap();
+		}
+		ClearChild();
+		DrawMapToScreen(tGen.GetMap());
+	});
 }
 
 function WriteMapToScreen(map){
@@ -39,5 +54,12 @@ function DrawMapToScreen(map){
 		}
 		
 		document.getElementById("build").appendChild(cellRow);
+	}
+}
+
+function ClearChild(){
+	while(document.getElementById("build").lastElementChild){
+		let child = document.getElementById("build").lastElementChild;
+		document.getElementById("build").removeChild(child);
 	}
 }
