@@ -1,0 +1,27 @@
+body{
+	font-family: monospace;
+}
+
+.cellRow{
+	display: flex;
+	margin: 0px;
+	padding: 0px;
+}
+
+.landCell{
+	display: inline-block;
+	margin: 0px;
+	
+	width: 7px;
+	height: 7px;
+	background-color: green;
+}
+
+.waterCell{
+	display: inline-block;
+	margin: 0px;
+	
+	width: 7px;
+	height: 7px;
+	background-color: blue;
+}
