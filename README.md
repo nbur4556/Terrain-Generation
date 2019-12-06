@@ -1,6 +1,6 @@
 # Terrain Generation
 
-One Paragraph of project description goes here
+Procedural terrain generation using a cullular automata system.
 
 ## Getting Started
 
