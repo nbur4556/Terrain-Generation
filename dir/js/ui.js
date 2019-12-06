@@ -1,10 +1,5 @@
 window.onload = function(){
-	var tGen = new TerrainGenerator(125, 250, 37, 3);
-	tGen.CreateMap();
-	
-	tGen.SmoothMap();
-	//tGen.SmoothMap();
-	//tGen.SmoothMap();
+	var tGen = new TerrainGenerator(125, 250, 37, 3, 1); //mapWidth, mapHeight, fillPercent, convertAt, smoothAmount, seed
 	
 	DrawMapToScreen(tGen.GetMap());
 }
