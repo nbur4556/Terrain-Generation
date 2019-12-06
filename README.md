@@ -1,6 +1,6 @@
 # Terrain Generation
 
-Procedural terrain generation using a cullular automata system.
+Procedural terrain generation using a cellular automata system.
 
 ## Getting Started
 
