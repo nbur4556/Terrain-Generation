@@ -1,11 +1,11 @@
 window.onload = function(){
-	var mapWidth = 100;
-	var mapHeight = 100;
+	var mapWidth = 250;
+	var mapHeight = 125;
 	var fillpercent = 54;
 	var convertAt = 4;
-	var smoothAmount = 5;
+	var smoothAmount = 10;
 	var seed = null;
-	var tGen = new TerrainGenerator(mapWidth, mapHeight, fillpercent, convertAt, smoothAmount, seed);
+	var tGen = new TerrainGenerator(mapHeight, mapWidth, fillpercent, convertAt, smoothAmount, seed);
 	
 	DrawMapToScreen(tGen.GetMap());
 	
